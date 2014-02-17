@@ -3,6 +3,7 @@ export GOPATH=$(shell pwd)
 install:
 	@go install baidu-pic
 run:
-	@./bin/baidu-pic
+	pkill baidu-pic
+	@nohup ./bin/baidu-pic -port :8999 &
 test:
-	@./bin/baidu-pic
+	@./bin/baidu-pic -port :8999

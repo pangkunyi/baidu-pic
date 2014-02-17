@@ -9,12 +9,12 @@ import (
 )
 
 const (
-	API_URL = `http://image.baidu.com/i?tn=baiduimagejson&word=%s&pn=%d`
+	API_URL = `http://image.baidu.com/i?tn=baiduimagejson&rn=2&word=%s&pn=%d`
 	TPL     = `
     <html>
     <body>
     <a href="pic">
-    <img src="%s"/>
+    <img src="%s" width="1024" heigth="768"/>
     </a>
     </body>
     </html>
@@ -41,6 +41,7 @@ func search() string {
 	if resp, err := http.Get(searchUrl); err == nil {
 		defer resp.Body.Close()
 		if data, err := ioutil.ReadAll(resp.Body); err == nil {
+fmt.Println(string(data))
 			var result Result
 			if err = json.Unmarshal(data, &result); err == nil {
 				return result.Datas[0].ObjURL

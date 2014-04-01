@@ -9,12 +9,12 @@ import (
 )
 
 const (
-	API_URL = `http://image.baidu.com/i?tn=baiduimagejson&word=%s&pn=%d`
+	API_URL = `http://image.baidu.com/i?tn=baiduimagejson&rn=2&word=%s&pn=%d`
 	TPL     = `
     <html>
     <body>
     <a href="pic">
-    <img src="%s"/>
+    <img src="%s" width="1024" heigth="768"/>
     </a>
     </body>
     </html>

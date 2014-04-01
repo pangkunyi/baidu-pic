@@ -41,6 +41,7 @@ func search() string {
 	if resp, err := http.Get(searchUrl); err == nil {
 		defer resp.Body.Close()
 		if data, err := ioutil.ReadAll(resp.Body); err == nil {
+fmt.Println(string(data))
 			var result Result
 			if err = json.Unmarshal(data, &result); err == nil {
 				return result.Datas[0].ObjURL
